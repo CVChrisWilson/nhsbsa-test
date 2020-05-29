@@ -1,0 +1,9 @@
+C:\Users\Chris\IdeaProjects\nhsbsa-test\core\src\main\java\com\nhsbsatest\domain\PersonManager.java
+C:\Users\Chris\IdeaProjects\nhsbsa-test\core\src\main\java\com\nhsbsatest\domain\repository\PersonRepository.java
+C:\Users\Chris\IdeaProjects\nhsbsa-test\core\src\main\java\com\nhsbsatest\domain\rest\PersonController.java
+C:\Users\Chris\IdeaProjects\nhsbsa-test\core\src\main\java\com\nhsbsatest\domain\rest\exception\ConflictException.java
+C:\Users\Chris\IdeaProjects\nhsbsa-test\core\src\main\java\com\nhsbsatest\domain\converters\PersonConverters.java
+C:\Users\Chris\IdeaProjects\nhsbsa-test\core\src\main\java\com\nhsbsatest\domain\entity\Skill.java
+C:\Users\Chris\IdeaProjects\nhsbsa-test\core\src\main\java\com\nhsbsatest\domain\rest\exception\NotFoundException.java
+C:\Users\Chris\IdeaProjects\nhsbsa-test\core\src\main\java\com\nhsbsatest\domain\entity\Person.java
+C:\Users\Chris\IdeaProjects\nhsbsa-test\core\src\main\java\com\nhsbsatest\domain\rest\exception\BadRequestException.java
