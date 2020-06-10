@@ -1,9 +1,0 @@
-com\nhsbsatest\domain\entity\Person.class
-com\nhsbsatest\domain\repository\PersonRepository.class
-com\nhsbsatest\domain\rest\exception\BadRequestException.class
-com\nhsbsatest\domain\rest\PersonController.class
-com\nhsbsatest\domain\entity\Skill.class
-com\nhsbsatest\domain\rest\exception\NotFoundException.class
-com\nhsbsatest\domain\rest\exception\ConflictException.class
-com\nhsbsatest\domain\converters\PersonConverters.class
-com\nhsbsatest\domain\PersonManager.class
