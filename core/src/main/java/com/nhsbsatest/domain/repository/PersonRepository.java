@@ -1,15 +1,14 @@
 package com.nhsbsatest.domain.repository;
 
-import com.nhsbsatest.domain.entity.Person;
-import com.nhsbsatest.model.PlatformIdentifier;
+import com.nhsbsatest.domain.entity.PersonEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface PersonRepository extends CrudRepository<Person, Long> {
-    Optional<Person> findByEmail(String email);
+public interface PersonRepository extends CrudRepository<PersonEntity, Long> {
+    Optional<PersonEntity> findByEmail(String email);
 
-    Optional<Person> findByPlatformPersonIdentifier(String platformPersonIdentifier);
+    Optional<PersonEntity> findByPlatformPersonIdentifier(String platformPersonIdentifier);
 }

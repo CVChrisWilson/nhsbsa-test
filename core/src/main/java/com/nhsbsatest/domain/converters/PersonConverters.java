@@ -1,12 +1,13 @@
 package com.nhsbsatest.domain.converters;
 
+import com.nhsbsatest.domain.entity.PersonEntity;
 import com.nhsbsatest.model.Person;
 import com.nhsbsatest.model.PlatformIdentifier;
 import com.nhsbsatest.model.Skill;
 import org.springframework.util.CollectionUtils;
 
 public class PersonConverters {
-    public static Person toDto(com.nhsbsatest.domain.entity.Person from) {
+    public static Person toDto(PersonEntity from) {
         if (from == null) {
             return null;
         }

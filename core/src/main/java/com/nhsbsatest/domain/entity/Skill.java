@@ -19,7 +19,7 @@ public class Skill {
 
     @ManyToOne
     @JoinColumn(name = "person_id")
-    private Person person;
+    private PersonEntity personEntity;
 
     public Long getId() {
         return id;
@@ -45,12 +45,12 @@ public class Skill {
         this.skillLevel = skillLevel;
     }
 
-    public Person getPerson() {
-        return person;
+    public PersonEntity getPersonEntity() {
+        return personEntity;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public void setPersonEntity(PersonEntity personEntity) {
+        this.personEntity = personEntity;
     }
 
     @Override

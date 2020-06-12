@@ -1,6 +1,6 @@
 package com.nhsbsatest.domain;
 
-import com.nhsbsatest.domain.entity.Person;
+import com.nhsbsatest.domain.entity.PersonEntity;
 import com.nhsbsatest.domain.repository.PersonRepository;
 import com.nhsbsatest.domain.rest.exception.ConflictException;
 import com.nhsbsatest.domain.rest.exception.NotFoundException;
@@ -21,23 +21,23 @@ public class PersonManager {
 
     ExecutorService executorService = Executors.newCachedThreadPool();
 
-    public CompletableFuture<Person> createPerson(com.nhsbsatest.model.NewPerson newPerson) {
+    public CompletableFuture<PersonEntity> createPerson(com.nhsbsatest.model.NewPerson newPerson) {
         return findPerson(newPerson.getEmail())
-                .thenCompose(person -> {
-                    if (person == null) {
-                        return upsertPerson(new Person(newPerson));
+                .thenCompose(personEntity -> {
+                    if (personEntity == null) {
+                        return upsertPerson(new PersonEntity(newPerson));
                     } else {
                         throw new CompletionException(new ConflictException());
                     }
                 });
     }
 
-    public CompletableFuture<Person> updatePerson(com.nhsbsatest.model.Person person) {
+    public CompletableFuture<PersonEntity> updatePerson(com.nhsbsatest.model.Person person) {
         return getPerson(person.getPlatformPersonIdentifier())
-                .thenCompose(foundPerson -> {
-                    if (foundPerson != null) {
-                        Person personEntity = new Person(person);
-                        personEntity.setId(foundPerson.getId());
+                .thenCompose(foundPersonEntity -> {
+                    if (foundPersonEntity != null) {
+                        PersonEntity personEntity = new PersonEntity(person);
+                        personEntity.setId(foundPersonEntity.getId());
                         return upsertPerson(personEntity);
                     } else {
                         throw new CompletionException(new NotFoundException());
@@ -45,24 +45,24 @@ public class PersonManager {
                 });
     }
 
-    public CompletableFuture<Person> upsertPerson(com.nhsbsatest.domain.entity.Person person) {
+    public CompletableFuture<PersonEntity> upsertPerson(PersonEntity personEntity) {
         return CompletableFuture.supplyAsync(() -> {
-            person.getSkills()
-                    .forEach(skill -> skill.setPerson(person));
-            return personRepository.save(person);
+            personEntity.getSkills()
+                    .forEach(skill -> skill.setPersonEntity(personEntity));
+            return personRepository.save(personEntity);
         });
     }
 
     public CompletableFuture<Void> deletePerson(PlatformIdentifier platformPersonIdentifier) {
         return getPerson(platformPersonIdentifier)
-                .thenAccept(person -> {
-                    if (person != null) {
-                        personRepository.deleteById(person.getId());
+                .thenAccept(personEntity -> {
+                    if (personEntity != null) {
+                        personRepository.deleteById(personEntity.getId());
                     }
                 });
     }
 
-    public CompletableFuture<Person> getPerson(PlatformIdentifier platformPersonIdentifier) {
+    public CompletableFuture<PersonEntity> getPerson(PlatformIdentifier platformPersonIdentifier) {
         return CompletableFuture.supplyAsync(() -> {
             try {
                 return personRepository.findByPlatformPersonIdentifier(platformPersonIdentifier.toString()).orElseThrow(NotFoundException::new);
@@ -72,7 +72,7 @@ public class PersonManager {
         });
     }
 
-    private CompletableFuture<Person> findPerson(String email) {
+    private CompletableFuture<PersonEntity> findPerson(String email) {
         return CompletableFuture.supplyAsync(() -> personRepository.findByEmail(email).orElse(null));
     }
 }

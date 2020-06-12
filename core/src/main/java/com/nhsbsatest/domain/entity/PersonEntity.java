@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "person")
-public class Person {
+public class PersonEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -74,9 +74,9 @@ public class Person {
         this.skills = skills;
     }
 
-    public Person() {}
+    public PersonEntity() {}
 
-    public Person(com.nhsbsatest.model.Person from) {
+    public PersonEntity(com.nhsbsatest.model.Person from) {
         this.platformPersonIdentifier = from.getPlatformPersonIdentifier().toString();
         this.firstName = from.getFirstName();
         this.lastName = from.getLastName();
@@ -86,7 +86,7 @@ public class Person {
                 .forEach(this.skills::add);
     }
 
-    public Person(com.nhsbsatest.model.NewPerson from) {
+    public PersonEntity(com.nhsbsatest.model.NewPerson from) {
         this.platformPersonIdentifier = PlatformIdentifier.create().toString();
         this.firstName = from.getFirstName();
         this.lastName = from.getLastName();
