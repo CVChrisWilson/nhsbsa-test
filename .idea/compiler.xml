@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="nhsbsa-test-server-component-tests" />
+        <module name="nhsbsa-test-server-app" />
+        <module name="nhsbsa-test-server-model" />
+        <module name="nhsbsa-test-server-core" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="nhsbsa-test" target="11" />
+      <module name="nhsbsa-test-server-app" target="11" />
+      <module name="nhsbsa-test-server-component-tests" target="11" />
+      <module name="nhsbsa-test-server-core" target="11" />
+      <module name="nhsbsa-test-server-model" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="nhsbsa-test-server-app" options="-parameters" />
+      <module name="nhsbsa-test-server-component-tests" options="-parameters" />
+      <module name="nhsbsa-test-server-core" options="-parameters" />
+      <module name="nhsbsa-test-server-model" options="-parameters" />
+    </option>
+  </component>
+</project>

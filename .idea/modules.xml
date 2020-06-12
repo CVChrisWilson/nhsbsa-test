@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/nhsbsa-test.iml" filepath="$PROJECT_DIR$/.idea/nhsbsa-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/nhsbsa-test-server-app.iml" filepath="$PROJECT_DIR$/app/nhsbsa-test-server-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/component-tests/nhsbsa-test-server-component-tests.iml" filepath="$PROJECT_DIR$/component-tests/nhsbsa-test-server-component-tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/nhsbsa-test-server-core.iml" filepath="$PROJECT_DIR$/core/nhsbsa-test-server-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/model/nhsbsa-test-server-model.iml" filepath="$PROJECT_DIR$/model/nhsbsa-test-server-model.iml" />
+    </modules>
+  </component>
+</project>

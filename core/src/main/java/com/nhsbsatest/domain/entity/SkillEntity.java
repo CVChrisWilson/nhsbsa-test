@@ -7,7 +7,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "skill")
-public class Skill {
+public class SkillEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -57,10 +57,10 @@ public class Skill {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Skill skill = (Skill) o;
-        return Objects.equals(id, skill.id) &&
-                Objects.equals(skillType, skill.skillType) &&
-                skillLevel == skill.skillLevel;
+        SkillEntity skillEntity = (SkillEntity) o;
+        return Objects.equals(id, skillEntity.id) &&
+                Objects.equals(skillType, skillEntity.skillType) &&
+                skillLevel == skillEntity.skillLevel;
     }
 
     @Override
@@ -68,9 +68,9 @@ public class Skill {
         return Objects.hash(id, skillType, skillLevel);
     }
 
-    public Skill() {}
+    public SkillEntity() {}
 
-    public Skill(String skillType, SkillLevel skillLevel) {
+    public SkillEntity(String skillType, SkillLevel skillLevel) {
         this.skillType = skillType;
         this.skillLevel = skillLevel;
     }

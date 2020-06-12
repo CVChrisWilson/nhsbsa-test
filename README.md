@@ -1,6 +1,6 @@
 # nhsbsa-test
 
-Contains some very basic CRUD endpoints for 'Person' which contains a list of skills.
+Contains some very basic CRUD endpoints for 'Person' which contains a list of skillEntities.
 
 Spring multi-module application uses JPA/H2, has a universal identifier, and some basic handling for threads.
 

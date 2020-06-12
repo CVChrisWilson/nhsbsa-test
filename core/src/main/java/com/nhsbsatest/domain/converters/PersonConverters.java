@@ -19,12 +19,8 @@ public class PersonConverters {
         to.setPlatformPersonIdentifier(PlatformIdentifier.valueOf(from.getPlatformPersonIdentifier()));
         if (!CollectionUtils.isEmpty(from.getSkills())) {
             from.getSkills().stream()
-                    .map(skill -> {
-                        Skill toSkill = new Skill();
-                        toSkill.setSkillType(skill.getSkillType());
-                        toSkill.setSkillLevel(skill.getSkillLevel());
-                        return toSkill;
-                    }).forEach(to.getSkillList()::add);
+                    .map(SkillConverters::toDto)
+                    .forEach(to.getSkillList()::add);
         }
 
         return to;

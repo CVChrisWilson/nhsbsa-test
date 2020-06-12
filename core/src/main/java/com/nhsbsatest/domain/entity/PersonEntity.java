@@ -5,7 +5,6 @@ import com.nhsbsatest.model.PlatformIdentifier;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "person")
@@ -24,7 +23,7 @@ public class PersonEntity {
     private String email;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Skill> skills = new ArrayList<>();
+    private List<SkillEntity> skills = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -66,11 +65,11 @@ public class PersonEntity {
         this.email = email;
     }
 
-    public List<Skill> getSkills() {
+    public List<SkillEntity> getSkills() {
         return skills;
     }
 
-    public void setSkills(List<Skill> skills) {
+    public void setSkills(List<SkillEntity> skills) {
         this.skills = skills;
     }
 
@@ -82,7 +81,7 @@ public class PersonEntity {
         this.lastName = from.getLastName();
         this.email = from.getEmail();
         from.getSkillList().stream()
-                .map(skill -> new Skill(skill.getSkillType(), skill.getSkillLevel()))
+                .map(skill -> new SkillEntity(skill.getSkillType(), skill.getSkillLevel()))
                 .forEach(this.skills::add);
     }
 
@@ -92,7 +91,7 @@ public class PersonEntity {
         this.lastName = from.getLastName();
         this.email = from.getEmail();
         from.getSkillList().stream()
-                .map(skill -> new Skill(skill.getSkillType(), skill.getSkillLevel()))
+                .map(skill -> new SkillEntity(skill.getSkillType(), skill.getSkillLevel()))
                 .forEach(this.skills::add);
     }
 }

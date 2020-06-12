@@ -29,7 +29,7 @@ public class PersonTests {
 
     @Test
     public void givenPersonDoesNotExists_whenPersonInfoIsRetrieved_then404IsReceived()
-            throws ClientProtocolException, IOException {
+            throws IOException {
 
         // Given
 
@@ -46,7 +46,7 @@ public class PersonTests {
 
     @Test
     public void givenPersonIsCreated_whenPersonInfoIsRetrieved_then200AndPersonIsReceived()
-            throws ClientProtocolException, IOException {
+            throws IOException {
 
         // Given
         Person existingPerson = saveNewPerson();
@@ -71,7 +71,7 @@ public class PersonTests {
 
     @Test
     public void givenPersonIsCreated_whenPersonInfoIsUpdated_then200AndPersonIsUpdated()
-            throws ClientProtocolException, IOException {
+            throws IOException {
 
         // Given
         Person existingPerson = saveNewPerson();
@@ -112,7 +112,7 @@ public class PersonTests {
 
     @Test
     public void givenPersonIsCreated_whenPersonInfoIsDeleted_then404IsReceived()
-            throws ClientProtocolException, IOException {
+            throws IOException {
 
         // Given
         Person existingPerson = saveNewPerson();
